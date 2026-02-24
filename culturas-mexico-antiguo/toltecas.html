@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pantalla Secundaria - Cultura Tolteca</title>
+  <style>
+    /* Estilos generales */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffe8d6, #ffd6a5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Ventana central */
+    .ventana {
+      background-color: #fffaf0;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      max-width: 700px;
+      width: 90%;
+      overflow-y: auto;
+      max-height: 90vh;
+      animation: aparecer 0.5s ease-out;
+      border: 3px solid #e67e22; /* marco naranja */
+    }
+
+    @keyframes aparecer {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* Encabezado con imagen de fondo */
+    h1 {
+      text-align: center;
+      color: #fff;
+      margin-bottom: 20px;
+      padding: 40px 20px;
+      background-image: url('Toltecas.jpg'); /* Pon aquí tu imagen de Toltecas */
+      background-size: cover;
+      background-position: center;
+      border-radius: 12px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    }
+
+    h2 {
+      color: #16a085; /* verde azulado */
+      margin-top: 20px;
+      border-bottom: 2px solid #e67e22;
+      padding-bottom: 5px;
+    }
+
+    p, li {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #2c3e50; /* azul oscuro para texto */
+    }
+
+    ul {
+      margin-left: 20px;
+    }
+
+    li {
+      margin-bottom: 12px;
+    }
+
+    /* Botón cerrar */
+    .cerrar {
+      display: block;
+      text-align: right;
+      margin-bottom: 10px;
+    }
+
+    .cerrar a {
+      text-decoration: none;
+      color: #e74c3c;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .cerrar a:hover {
+      color: #c0392b;
+    }
+
+    /* Resaltar nombres */
+    strong {
+      color: #e67e22; /* naranja */
+    }
+
+    em {
+      color: #27ae60; /* verde */
+    }
+  </style>
+</head>
+<body>
+  <div class="ventana">
+    <div class="cerrar">
+      <a href="javascript:window.close();">Cerrar ✖</a>
+    </div>
+
+    <h1>Cultura Tolteca</h1>
+
+    <h2>Deportes</h2>
+    <ul>
+      <li>
+        <strong>Juego de Pelota</strong>: Similar al de los mexicas, el juego de pelota tolteca también tenía fines ceremoniales 
+        y podía estar relacionado con sacrificios rituales. Se practicaba en canchas especiales llamadas “tlachtli”.
+      </li>
+      <li>
+        <strong>Entrenamiento guerrero</strong>: La educación tolteca incluía ejercicios físicos, carreras y lucha, preparados para formar 
+        guerreros fuertes y disciplinados.
+      </li>
+    </ul>
+
+    <h2>Música</h2>
+    <ul>
+      <li>
+        <strong>Caracoles y conchas</strong>: Instrumentos de viento hechos con conchas marinas que se usaban en rituales y ceremonias 
+        para invocar a los dioses o marcar eventos importantes.
+      </li>
+      <li>
+        <strong>Tambores de madera</strong>: Usados para marcar el ritmo en danzas, celebraciones y rituales religiosos, con un estilo más 
+        simple que el de los mexicas pero con función ceremonial similar.
+      </li>
+    </ul>
+  </div>
+</body>
+</html>

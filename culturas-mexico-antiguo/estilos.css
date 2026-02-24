@@ -1,0 +1,121 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    background-color: #feffff;
+    color: #000;
+}
+
+/* Barra navegación */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #FF2400;
+    padding: 15px 0;
+    text-align: center;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: bold;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+
+nav a:hover {
+    opacity: 0.85;
+}
+
+/* Encabezado principal */
+header {
+    margin-top: 70px;
+    padding: 90px 20px;
+    text-align: center;
+    background-color: #162B4E;
+}
+
+header h1 {
+    font-size: 52px;
+    color: #FF2400;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+header h1::after {
+    content: "";
+    display: block;
+    width: 520px;
+    height: 4px;
+    background-color: #FF2400;
+    margin: 20px auto 0;
+}
+header p {
+    font-size: 20px;
+    color: #f2f2f2;
+    font-style: italic;
+}
+
+/* Área principal */
+main {
+    padding: 70px 15%;
+}
+
+/* Secciones culturales */
+.tarjeta {
+    padding: 50px 40px;
+    margin-bottom: 70px;
+    background-color: #c6fdffe8; /* Beige elegante */
+    border-left: 8px solid #FF2400;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: transform 0.5s ease;
+    
+}
+
+
+.tarjeta:hover {
+    transform: translateX(6px);
+}
+
+.tarjeta h2 {
+    margin-top: 0;
+    font-size: 32px;
+    color: #162B4E;
+}
+
+.tarjeta p {
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* Botón */
+.tarjeta a {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 10px 22px;
+    background-color: #162B4E;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease;
+}
+.tarjeta a:hover {
+    background-color: #FF2400;
+}
+.tarjeta {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+}
+
+.tarjeta.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

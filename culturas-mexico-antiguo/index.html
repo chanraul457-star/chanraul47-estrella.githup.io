@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Culturas de México Antiguo</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#mexicas">Mexicas</a>
+    <a href="#toltecas">Toltecas</a>
+    <a href="#mayas">Mayas</a>
+    <a href="#olmecas">Olmecas</a>
+    <a href="#teotihuacanos">Teotihuacanos</a>
+</nav>
+
+<header id="inicio">
+    <h1>Culturas de México Antiguo</h1>
+    <p>Explora las civilizaciones más importantes de nuestro pasado</p>
+</header>
+
+<main>
+
+<section id="mexicas" class="tarjeta"> 
+    <img src="mx.jpg" alt="Cultura mexica">
+    <h2>Mexicas</h2>
+    <p>Conoce su organización, religión y la ciudad de Tenochtitlán.</p>
+    <a href="Mexicas.html">Ver información</a>
+</section>
+
+<section id="toltecas" class="tarjeta">
+    <img src="imagenestoltecas.jpg" alt="Cultura toltecas">
+    <h2>Toltecas</h2>
+    <p>Descubre su influencia cultural con la música y el deporte.</p>
+    <a href="toltecas.html">Ver información</a>
+</section>
+
+<section id="mayas" class="tarjeta">
+    <img src="imagenesmayas.jpg" alt="Cultura maya">
+    <h2>Mayas</h2>
+    <p>Explora sus avances en astronomía, escritura y arquitectura.</p>
+    <a href="mayas.html">Ver información</a>
+</section>
+
+<section id="olmecas" class="tarjeta">
+    <img src="imagenesolmecas.jpg" alt="Cultura olmeca">
+    <h2>Olmecas</h2>
+    <p>Conoce la cultura madre de Mesoamérica y su legado artístico.</p>
+    <a href="olmeca.html">Ver información</a>
+</section>
+
+<section id="teotihuacanos" class="tarjeta">
+    <img src="imagenesteotihuacanos.jpg" alt="Cultura teotihuacanos">
+    <h2>Teotihuacanos</h2>
+    <p>Descubre la grandeza de la ciudad de Teotihuacán.</p>
+    <a href="Teotihuacanos.html">Ver información</a>
+</section>
+
+</main>
+
+</body>
+
+<script>
+const tarjetas = document.querySelectorAll('.tarjeta');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        } else {
+            entry.target.classList.remove('visible');
+        }
+    });
+}, {
+    threshold: 0.2
+});
+
+tarjetas.forEach(tarjeta => {
+    observer.observe(tarjeta);
+});
+</script>
+</html>

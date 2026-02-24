@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Los Teotihuacanes — Deporte & Música</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+
+:root {
+  --rojo: #C0130A;
+  --rojo-oscuro: #7A0804;
+  --rojo-brillante: #FF1A0E;
+  --dorado: #D4A017;
+  --dorado-claro: #F5D060;
+  --negro: #0A0000;
+  --crema: #FDF5E0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  background: var(--negro);
+  color: var(--crema);
+  overflow-x: hidden;
+}
+
+/* ── HERO ──────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 70% 30%, rgba(212,160,23,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(192,19,10,0.35) 0%, transparent 55%),
+    linear-gradient(160deg, #0A0000 0%, #3B0000 50%, #0A0000 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Geometric pyramid pattern overlay */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(60deg, transparent, transparent 60px, rgba(212,160,23,0.04) 60px, rgba(212,160,23,0.04) 61px),
+    repeating-linear-gradient(-60deg, transparent, transparent 60px, rgba(212,160,23,0.04) 60px, rgba(212,160,23,0.04) 61px);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(0.6rem, 1.5vw, 0.85rem);
+  letter-spacing: 0.5em;
+  color: var(--dorado);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.3s;
+}
+
+.hero-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(2.8rem, 9vw, 8rem);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--crema);
+  text-shadow:
+    0 0 80px rgba(192,19,10,0.8),
+    0 4px 30px rgba(0,0,0,0.8);
+  opacity: 0;
+  animation: fadeUp 0.9s ease forwards 0.5s;
+}
+
+.hero-title span {
+  color: var(--rojo-brillante);
+  display: block;
+  text-shadow:
+    0 0 60px rgba(255,26,14,0.9),
+    0 0 120px rgba(255,26,14,0.4),
+    0 4px 30px rgba(0,0,0,0.8);
+}
+
+.hero-sub {
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  font-style: italic;
+  color: var(--dorado-claro);
+  margin-top: 1.5rem;
+  max-width: 600px;
+  opacity: 0;
+  animation: fadeUp 0.9s ease forwards 0.8s;
+}
+
+.hero-divider {
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--dorado), transparent);
+  margin: 2.5rem auto;
+  opacity: 0;
+  animation: fadeUp 0.9s ease forwards 1s;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--dorado);
+  text-transform: uppercase;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ── DEPORTE SECTION — ROJO ───────────────── */
+.seccion-deporte {
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(255,80,40,0.25) 0%, transparent 60%),
+    radial-gradient(ellipse at 10% 90%, rgba(120,0,0,0.5) 0%, transparent 50%),
+    linear-gradient(135deg, #C0130A 0%, #8B0000 40%, #C0130A 70%, #6A0000 100%);
+  padding: 6rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.seccion-deporte::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg, transparent, transparent 40px,
+    rgba(0,0,0,0.08) 40px, rgba(0,0,0,0.08) 41px
+  );
+  pointer-events: none;
+}
+
+/* ── MÚSICA SECTION — OSCURO ─────────────── */
+.seccion-musica {
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(192,19,10,0.3) 0%, transparent 55%),
+    linear-gradient(160deg, #1A0000 0%, #0A0000 50%, #200000 100%);
+  padding: 6rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── SHARED LAYOUT ───────────────────────── */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.seccion-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.seccion-label {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--dorado);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.seccion-titulo {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.seccion-deporte .seccion-titulo { color: var(--crema); }
+.seccion-musica .seccion-titulo { color: var(--rojo-brillante); }
+
+.seccion-linea {
+  width: 80px;
+  height: 3px;
+  background: var(--dorado);
+  margin: 1.5rem auto 0;
+}
+
+/* Cards grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  border: 1px solid rgba(212,160,23,0.25);
+  padding: 2.5rem 2rem;
+  position: relative;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  cursor: default;
+}
+
+.seccion-deporte .card {
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(4px);
+}
+
+.seccion-musica .card {
+  background: rgba(192,19,10,0.08);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--dorado);
+}
+
+.card-icon {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.card-titulo {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.1rem;
+  color: var(--dorado);
+  margin-bottom: 1rem;
+}
+
+.card-texto {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(253,245,224,0.85);
+}
+
+/* Corner accent */
+.card::after {
+  content: '';
+  position: absolute;
+  top: -1px; right: -1px;
+  width: 24px; height: 24px;
+  border-top: 2px solid var(--dorado);
+  border-right: 2px solid var(--dorado);
+}
+
+/* Quote block */
+.cita {
+  text-align: center;
+  max-width: 700px;
+  margin: 4rem auto 0;
+  padding: 2.5rem;
+  border-top: 1px solid rgba(212,160,23,0.3);
+  border-bottom: 1px solid rgba(212,160,23,0.3);
+}
+
+.cita p {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--dorado-claro);
+}
+
+.cita footer {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: rgba(212,160,23,0.6);
+  text-transform: uppercase;
+}
+
+/* Separator between sections */
+.separador {
+  height: 6px;
+  background: linear-gradient(90deg, var(--rojo-oscuro), var(--dorado), var(--rojo-oscuro));
+}
+
+/* Footer */
+footer {
+  background: #050000;
+  text-align: center;
+  padding: 3rem 2rem;
+  border-top: 1px solid rgba(212,160,23,0.2);
+}
+
+footer .footer-logo {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.5rem;
+  color: var(--rojo);
+  margin-bottom: 0.5rem;
+}
+
+footer p {
+  font-size: 0.8rem;
+  color: rgba(253,245,224,0.4);
+  letter-spacing: 0.2em;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; transform: translateX(-50%) translateY(0); }
+  50%       { opacity: 1;   transform: translateX(-50%) translateY(-6px); }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <!-- ── HERO ── -->
+
+  <section class="hero">
+    <p class="hero-eyebrow">Cultura · Tradición · Identidad</p>
+    <h1 class="hero-title">
+      Los<span>Teotihuacanes</span>
+    </h1>
+    <p class="hero-sub">Guardianes del sol y la luna — su espíritu vive en el deporte y en cada nota musical.</p>
+    <div class="hero-divider"></div>
+    <span class="scroll-hint">↓ Descubrir ↓</span>
+  </section>
+
+  <div class="separador"></div>
+
+  <!-- ── DEPORTE — FONDO ROJO ── -->
+
+  <section class="seccion-deporte">
+    <div class="container">
+      <div class="seccion-header">
+        <span class="seccion-label">⚡ El Espíritu del Guerrero</span>
+        <h2 class="seccion-titulo">Deporte Teotihuacano</h2>
+        <div class="seccion-linea"></div>
+      </div>
+
+
+  <div class="cards-grid">
+    <div class="card">
+      <span class="card-icon">🏟️</span>
+      <h3 class="card-titulo">Juego de Pelota</h3>
+      <p class="card-texto">El juego de pelota era el deporte sagrado de Teotihuacan. En canchas de piedra, equipos rivales movían una pelota de hule sólido sin usar las manos, representando el movimiento del sol y la luna. Era más que un juego: era un ritual cósmico de vida, muerte y regeneración.</p>
+    </div>
+
+    <div class="card">
+      <span class="card-icon">🏹</span>
+      <h3 class="card-titulo">Arquería Ritual</h3>
+      <p class="card-texto">Los guerreros teotihuacanos dominaban el arco con precisión sobrehumana. La arquería no era solo destreza militar: los torneos de precisión celebraban las cosechas y honraban a Tláloc. Cada flecha lanzada era una oración hecha de movimiento y voluntad.</p>
+    </div>
+
+    <div class="card">
+      <span class="card-icon">🤼</span>
+      <h3 class="card-titulo">Lucha y Combate</h3>
+      <p class="card-texto">Las competencias de lucha cuerpo a cuerpo eran espectáculos masivos en la Calzada de los Muertos. Luchadores enmascarados representaban fuerzas naturales enfrentándose: el jaguar contra el águila, la lluvia contra el fuego, en combates que mezclaban atletismo con mitología viva.</p>
+    </div>
+
+    <div class="card">
+      <span class="card-icon">🏃</span>
+      <h3 class="card-titulo">Carreras Ceremoniales</h3>
+      <p class="card-texto">Durante los festivales solares, los mensajeros sagrados corrían los 40 kilómetros del eje central de la ciudad. Estas carreras eran maratones rituales donde los corredores más veloces se convertían en intermediarios entre los dioses y los hombres.</p>
+    </div>
+  </div>
+
+  <div class="cita">
+    <p>"El cuerpo del guerrero es el primer templo que los dioses construyeron. En su fuerza, el cosmos se sostiene."</p>
+    <footer>— Tradición Oral Teotihuacana</footer>
+  </div>
+</div>
+
+
+  </section>
+
+  <div class="separador"></div>
+
+  <!-- ── MÚSICA — FONDO OSCURO ── -->
+
+  <section class="seccion-musica">
+    <div class="container">
+      <div class="seccion-header">
+        <span class="seccion-label">🎵 El Sonido de la Pirámide</span>
+        <h2 class="seccion-titulo">Música Teotihuacana</h2>
+        <div class="seccion-linea"></div>
+      </div>
+
+
+  <div class="cards-grid">
+    <div class="card">
+      <span class="card-icon">🪘</span>
+      <h3 class="card-titulo">Huehuetl — El Tambor Sagrado</h3>
+      <p class="card-texto">El huehuetl era el corazón rítmico de Teotihuacan. Este gran tambor vertical, fabricado de troncos ahuecados y piel de jaguar, marcaba el pulso de las ceremonias. Su resonancia grave viajaba kilómetros, convocando a dioses y hombres hacia el centro cósmico de la ciudad.</p>
+    </div>
+
+    <div class="card">
+      <span class="card-icon">🎶</span>
+      <h3 class="card-titulo">Ocarina y Flautas de Barro</h3>
+      <p class="card-texto">Los arqueólogos han encontrado miles de ocarinas y flautas en Teotihuacan, muchas con formas de deidades. Estas flautas de barro producían escalas pentatónicas hipnóticas que acompañaban los rituales de lluvia. Algunas están afinadas exactamente como instrumentos orientales, sugiriendo conexiones musicales universales.</p>
+    </div>
+
+    <div class="card">
+      <span class="card-icon">🐚</span>
+      <h3 class="card-titulo">Caracol Marino — Voz del Océano</h3>
+      <p class="card-texto">El caracol marino (tecciztli) era el instrumento más precioso. Traídos desde costas lejanas a 300 kilómetros, estos instrumentos de viento producían un sonido que los teotihuacanos asociaban con el agua primordial y la creación del mundo. Solo los sacerdotes de élite podían soplarlo.</p>
+    </div>
+
+    <div class="card">
+      <span class="card-icon">🎵</span>
+      <h3 class="card-titulo">Cantos Corales Rituales</h3>
+      <p class="card-titulo">Polifonía Sagrada</h3>
+      <p class="card-texto">Los murales de Teotihuacan muestran grupos de cantantes con espirales saliendo de sus bocas —símbolo del sonido sagrado—. Los coros de cientos de voces resonaban en la Pirámide del Sol creando efectos acústicos que amplificaban ciertas frecuencias, convirtiendo la arquitectura misma en instrumento musical.</p>
+    </div>
+  </div>
+
+  <div class="cita">
+    <p>"Donde la piedra canta y el barro habla, ahí nació la primera música que los dioses escucharon con gusto."</p>
+    <footer>— Inscripción de Atetelco, Teotihuacan</footer>
+  </div>
+</div>
+
+
+  </section>
+
+  <div class="separador"></div>
+
+  <footer>
+    <div class="footer-logo">Los Teotihuacanes</div>
+    <p>DEPORTE · MÚSICA · LEGADO ETERNO</p>
+  </footer>
+
+</body>
+</html>
