@@ -4,11 +4,25 @@ html {
 
 body {
     margin: 0;
-    font-family: Georgia, "Times New Roman", serif;
-    background-color: #feffff;
-    color: #000;
+    font-family: Georgia, serif;
 }
 
+.tarjeta {
+    background-color: beige;
+    max-width: 900px;
+    width: 90%;
+    margin: 40px auto;
+    padding: 25px;
+    border-left: 6px solid #FF2400;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    margin-top: 15px;
+    border-radius: 5px;
+}
 /* Barra navegación */
 nav {
     position: fixed;
@@ -118,4 +132,5 @@ main {
 .tarjeta.visible {
     opacity: 1;
     transform: translateY(0);
+
 }
